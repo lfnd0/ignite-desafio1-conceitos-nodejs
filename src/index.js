@@ -19,7 +19,7 @@ function checksExistsUserAccount(request, response, next) {
     return response.status(404).json({ error: 'User not found!' });
   }
 
-  request.username = user;
+  request.user = user;
 
   return next();
 }
@@ -47,15 +47,15 @@ app.post('/users', (request, response) => {
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
-  const { username } = request;
-  const todos = username.todos;
+  const { user } = request;
+  const todos = user.todos;
 
   return response.json(todos);
 });
 
 app.post('/todos', checksExistsUserAccount, (request, response) => {
   const { title, deadline } = request.body;
-  const { username } = request;
+  const { user } = request;
 
   const todo = {
     id: uuidv4(),
@@ -65,7 +65,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
     created_at: new Date()
   };
 
-  username.todos.push(todo);
+  user.todos.push(todo);
 
   return response.status(201).json(todo);
 });
@@ -73,9 +73,9 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
   const { id } = request.params;
   const { title, deadline } = request.body;
-  const { username } = request;
+  const { user } = request;
 
-  const todo = username.todos.find(todo => todo.id === id);
+  const todo = user.todos.find(todo => todo.id === id);
 
   if (!todo) {
     return response.status(404).json({ error: 'Todo not found!' });
@@ -90,9 +90,9 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
   const { done } = request.body;
   const { id } = request.params;
-  const { username } = request;
+  const { user } = request;
 
-  const todo = username.todos.find(todo => todo.id === id);
+  const todo = user.todos.find(todo => todo.id === id);
 
   if (!todo) {
     return response.status(404).json({ error: 'Todo not found!' });
@@ -105,17 +105,17 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
 
 app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
   const { id } = request.params;
-  const { username } = request;
+  const { user } = request;
 
-  const todo = username.todos.find(todo => todo.id === id);
+  const todo = user.todos.find(todo => todo.id === id);
 
   if (!todo) {
     return response.status(404).json({ error: 'Todo not found!' });
   }
 
-  const todoIndex = username.todos.findIndex(todo => todo.id === id);
+  const todoIndex = user.todos.findIndex(todo => todo.id === id);
 
-  username.todos.splice(todoIndex, 1);
+  user.todos.splice(todoIndex, 1);
 
   return response.status(204).json();
 });
