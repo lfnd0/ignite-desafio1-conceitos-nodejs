@@ -4,26 +4,30 @@
 
 ### Desafio 1 – Conceitos do NodeJS (ToDos API)
 
-#### Execução do projeto
+#### :computer: Descrição
+Esta é uma API para gerenciar tarefas (em inglês *todos*), em que é permitida a criação de um usuário com `name` e `username` bem como fazer o CRUD (*Create*, *Read*, *Update* *and* *Delete*)de *todos*.
+
+#### :hammer_and_wrench: Funcionalidades
+- Criar um novo *todo*.
+- Listar todos os *todos*.
+- Alterar o `title` e `deadline` de um *todo* existente.
+- Marcar um *todo* como feito.
+- Excluir um *todo*.
+
+#### :link: Rotas
+- POST `/users`: cria um novo usuário.
+- GET `/todos`: retorna uma lista com os *todos* de um usuário.
+- POST `/todos`: cria um novo *todo*.
+- PUT `/todos/:id`: atualiza o `title` e o `dealine` de um *todo*.
+- PATCH `/todos/:id/done`: finaliza o `done` de um *todo*.
+- DELETE `/todos/:id`: remove um *todo*.
+
+#### :memo: Execução da API
 - Instalação das dependências:
   > yarn
 
 - Execução da API:
   > yarn dev
 
-- Execução dos testes da API:
+- Execução dos testes:
   > yarn test
-
-#### Requisitos
-- [x] Deve ser possível criar  um novo usuário.
-- [x] Deve ser possível listar todos os usuários.
-- [x] Deve ser possível criar uma nova tarefa.
-- [x] Deve ser possível atualizar uma tarefa.
-- [x] Deve ser possível marcar uma tarefa como concluída.
-- [x] Deve ser possível excluir uma tarefa.
-
-#### Regras de negócio
-- [x] Não dever ser possível criar um usuário com o mesmo `username`.
-- [x] Não dever ser possível atualizar uma tarefa não existente.
-- [x] Não dever ser possível marcar uma tarefa inexistente como concluída.
-- [x] Não dever ser possível excluir uma tarefa inexistente.
