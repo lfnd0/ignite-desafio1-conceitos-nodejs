@@ -28,11 +28,11 @@ Esta é uma API para gerenciar tarefas (em inglês todos), em que é permitida a
 
 ## :link: Rotas:
 - POST `/users`: cria um novo usuário.
-- GET `/todos`: retorna uma lista com os todos de um usuário.
-- POST `/todos`: cria um novo todo.
-- PUT `/todos/:id`: atualiza o `title` e o `dealine` de um todo.
-- PATCH `/todos/:id/done`: finaliza o `done` de um todo.
-- DELETE `/todos/:id`: remove um todo.
+- GET `/todos`: retorna uma lista com as todos de um usuário.
+- POST `/todos`: cria uma nova todo.
+- PUT `/todos/:id`: atualiza o `title` e o `dealine` de uma todo.
+- PATCH `/todos/:id/done`: finaliza o `done` de uma todo.
+- DELETE `/todos/:id`: remove uma todo.
 
 ## :memo: Execução da API:
 - Instalação das dependências:
