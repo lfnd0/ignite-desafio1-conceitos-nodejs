@@ -16,17 +16,17 @@
   <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js">
 </p>
 
-## :computer: Descrição
+## :computer: Descrição:
 Esta é uma API para gerenciar tarefas (em inglês todos), em que é permitida a criação de um usuário com `name` e `username` bem como fazer o CRUD (Create, Read, Update and Delete ) de todos.
 
-## :hammer_and_wrench: Funcionalidades
+## :hammer_and_wrench: Funcionalidades:
 - Criar uma nova todo.
 - Listar todas as todos.
 - Alterar o `title` e `deadline` de um todo existente.
 - Marcar uma todo como `done`.
 - Excluir uma todo.
 
-## :link: Rotas
+## :link: Rotas:
 - POST `/users`: cria um novo usuário.
 - GET `/todos`: retorna uma lista com os todos de um usuário.
 - POST `/todos`: cria um novo todo.
@@ -34,7 +34,7 @@ Esta é uma API para gerenciar tarefas (em inglês todos), em que é permitida a
 - PATCH `/todos/:id/done`: finaliza o `done` de um todo.
 - DELETE `/todos/:id`: remove um todo.
 
-## :memo: Execução da API
+## :memo: Execução da API:
 - Instalação das dependências:
   > yarn
 
